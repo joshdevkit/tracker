@@ -1,0 +1,259 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.loadingState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 48px 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+}
+
+/* ─── Header ─────────────────────────────────────────── */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 12, 16, 0.85);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+}
+
+.headerInner {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logoMark {
+  font-size: 22px;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.logoText {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+}
+
+.logoAccent {
+  color: var(--accent);
+}
+
+.statusBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.statusBadge[data-active="true"] {
+  color: var(--accent);
+  border-color: var(--accent-mid);
+  background: var(--accent-dim);
+}
+
+.statusDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.statusBadge[data-active="true"] .statusDot {
+  animation: blink 1.5s ease-in-out infinite;
+}
+
+/* ─── Main ───────────────────────────────────────────── */
+.main {
+  flex: 1;
+  padding: 48px 24px;
+}
+
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.envWarning {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 20px;
+  background: rgba(255, 179, 71, 0.06);
+  border: 1px solid rgba(255, 179, 71, 0.25);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--warning);
+  line-height: 1.7;
+  margin-bottom: 8px;
+  animation: fadeUp 0.3s ease both;
+}
+
+.envWarning strong {
+  font-weight: 700;
+}
+
+.envWarning code {
+  background: rgba(255, 179, 71, 0.12);
+  padding: 1px 5px;
+  border-radius: 2px;
+  font-size: 11px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ─── Locate button ──────────────────────────────────── */
+.locateSection {
+  display: flex;
+  justify-content: center;
+}
+
+.locateBtn {
+  position: relative;
+  background: transparent;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  padding: 18px 48px;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+  transition: background 0.2s, transform 0.1s;
+  min-width: 260px;
+  justify-content: center;
+}
+
+.locateBtn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent-dim);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.locateBtn:hover:not(:disabled)::before {
+  opacity: 1;
+}
+
+.locateBtn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.locateBtn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.locateBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.btnPulse {
+  position: absolute;
+  inset: -1px;
+  border-radius: 4px;
+  border: 1px solid var(--accent);
+  opacity: 0;
+}
+
+.locateBtn:not(:disabled):hover .btnPulse {
+  animation: pulse-ring 1.2s ease-out infinite;
+}
+
+.spinner {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--accent-mid);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+/* ─── Error ──────────────────────────────────────────── */
+.error {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 16px 20px;
+  background: rgba(255, 77, 109, 0.06);
+  border: 1px solid rgba(255, 77, 109, 0.25);
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--error);
+  line-height: 1.6;
+  animation: fadeUp 0.3s ease both;
+}
+
+.errorIcon {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ─── Results ────────────────────────────────────────── */
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ─── Footer ─────────────────────────────────────────── */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 16px 24px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.footerDivider {
+  color: var(--border-bright);
+}

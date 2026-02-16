@@ -1,0 +1,127 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-bright);
+  border-radius: 4px;
+  overflow: hidden;
+  animation: fadeUp 0.5s ease 0.1s both;
+}
+
+.headline {
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+}
+
+.fullAddress {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 10px 24px;
+  border-bottom: 1px solid var(--border);
+  gap: 16px;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.rowLabel {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  text-transform: uppercase;
+}
+
+.rowValue {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-primary);
+  text-align: right;
+  word-break: break-word;
+}
+
+.coords {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: var(--bg-elevated);
+  border-top: 1px solid var(--border-bright);
+  padding: 14px 24px;
+  cursor: pointer;
+  transition: background 0.2s;
+  gap: 16px;
+}
+
+.coords:hover {
+  background: #1a2030;
+}
+
+.coords:hover .copyHint {
+  opacity: 1;
+}
+
+.coordBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.coordDivider {
+  width: 1px;
+  height: 32px;
+  background: var(--border-bright);
+  margin: 0 4px;
+}
+
+.coordLabel {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+}
+
+.coordVal {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+
+.copyHint {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-secondary);
+  opacity: 0;
+  transition: opacity 0.2s;
+  letter-spacing: 0.08em;
+}
+
+
